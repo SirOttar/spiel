@@ -54,7 +54,6 @@ restart button
 */
 document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
 document.querySelector('.game--restart').addEventListener('click', handleRestartGame);
-
 function handleCellClick(clickedCellEvent) {
     /*
     We will save the clicked html element in a variable for easier further use
@@ -88,7 +87,6 @@ function handleCellClick(clickedCellEvent) {
         as well as update the user interface to reflect the played move
         */
             var hintergrund = document.getElementById("body"); 
-            console.log(clickedCell.innerHTML)
             if (currentPlayer ==="X" && clickedCell.innerHTML === "") {
                 clickedCell.className = "cell blue"
                  hintergrund.style.backgroundColor = "red"
@@ -124,18 +122,16 @@ function handleCellClick(clickedCellEvent) {
                     roundWon = true;
                     break
                 }
-                console.log(roundWon)
-                if( roundWon ) {
-                    document.getElementById("melone").style.visibility = "visible";
-                }else {
-                    document.getElementById("melone").style.visibility = "hidden";
-                }
             }
-        if (roundWon) {
+            if(roundWon) {
+                document.getElementById("melone").style.visibility = "visible";
                 statusDisplay.innerHTML = winningMessage();
                 gameActive = false;
                 return;
+            }else {
+                document.getElementById("melone").style.visibility = "hidden";
             }
+
         /* 
         We will check weather there are any values in our game state array 
         that are still not populated with a player sign
@@ -166,9 +162,40 @@ function handleCellClick(clickedCellEvent) {
             document.querySelectorAll('.cell')
                        .forEach(cell => cell.innerHTML = ""); 
             var hintergrund = document.getElementById("body");               
-                 hintergrund.style.backgroundColor = "blue"      
-
+                 hintergrund.style.backgroundColor = "blue"
+                 document.getElementById("melone").style.visibility = "hidden";      
             }
             var melone =  document.getElementById("melone")
-            melone.addEventListener('mouseover', ()=>{melone.style.width = "2%"})
-            melone.addEventListener('mouseleave', ()=>{melone.style.width = "50%"})
+            // melone.addEventListener('mouseover', ()=>{melone.style.width = "2%"})
+            // melone.addEventListener('mouseleave', ()=>{melone.style.width = "50%"})
+
+         var todo_input = document.getElementById("todo_input")
+         var todo_ul = document.getElementById("todo_ul") 
+        
+         function zufall() {
+            var min = 1;
+            var max = 2;
+            var zufallszahl = Math.round(Math.random() * (max - min)) + min;
+            alert(zufallszahl);
+         }
+         function hinzufuegen() {
+            let input = todo_input.value
+            let newTodo = document.createElement("li")
+            const listenelement = document.querySelectorAll('li');
+            console.log(listenelement)
+            
+                if(input !== "" && listenelement.length !== 2) {
+                newTodo.innerText = input
+                let delet_button = document.createElement("button")
+                delet_button.innerText = "löschen"
+                newTodo.appendChild(delet_button)
+                 todo_ul.appendChild(newTodo)
+                todo_input.value = ""
+                 delet_button.addEventListener("click", () => {
+                     newTodo.remove()
+                 })  
+            }
+            for (i = 0; i < listenelement.length; i++) {
+                console.log(listenelement[i].innerText)
+            }
+         }
