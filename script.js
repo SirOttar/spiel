@@ -100,28 +100,6 @@ function handleCellClick(clickedCellEvent) {
             gameState[clickedCellIndex] = currentPlayer;
             clickedCell.innerHTML = currentPlayer;
         }
-        function handleResultValidation() {
-            let roundWon = false;
-            for (let i = 0; i <= 7; i++) {
-                const winCondition = winningConditions[i];
-                let a = gameState[winCondition[0]];
-                let b = gameState[winCondition[1]];
-                let c = gameState[winCondition[2]];
-                if (a === '' || b === '' || c === '') {
-                    continue;
-                }
-                if (a === b && b === c) {
-                    roundWon = true;
-                    break
-                }
-            }
-        if (roundWon) {
-                statusDisplay.innerHTML = winningMessage();
-                gameActive = false;
-                return;
-            }
-        }
-
         const winningConditions = [
             [0, 1, 2],
             [3, 4, 5],
@@ -145,6 +123,12 @@ function handleCellClick(clickedCellEvent) {
                 if (a === b && b === c) {
                     roundWon = true;
                     break
+                }
+                console.log(roundWon)
+                if( roundWon ) {
+                    document.getElementById("melone").style.visibility = "visible";
+                }else {
+                    document.getElementById("melone").style.visibility = "hidden";
                 }
             }
         if (roundWon) {
