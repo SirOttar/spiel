@@ -9,11 +9,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body id="body">
-    <input id="todo_input" type="text" placeholder="name">
-    <button id="add_button" onclick="hinzufuegen()">Hinzufügen</button>
-    <ul id="todo_ul"></ul>
-   </form> 
-   <input id="zahl" type="button" value="Alert" onclick="zufall()"></input>
+    <div>
+        <h2>Spieler</h2> 
+        <input id="todo_input1" type="text" placeholder="Spieler1">
+        <button id="add_button1" onclick="hinzufuegen(1)">ändern</button> <br>
+        <input id="todo_input2" type="text" placeholder="Spieler2">
+        <button id="add_button2" onclick="hinzufuegen(2)">ändern</button>
+    </div>
+    <div class="PlayerBox">
+        <input id="zahl" type="button" class="start" value="start spieler" onclick="zufall()"></input>
+        <div class="Box" id="currentPlayerBox"></div>
+    </div>
+    <button onclick="leseSpielfeld()">klicken</button>
+   
     <section>
         <h1 class="game--title">Tic Tac Toe</h1>
         <div class="game--container">
