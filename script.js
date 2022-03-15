@@ -75,6 +75,7 @@ function handleCellClick(clickedCellEvent) {
   const clickedCellIndex = parseInt(
     clickedCell.getAttribute("data-cell-index")
   );
+  console.log(istBereitsBelegt(clickedCell));
   /* 
     Next up we need to check whether the call has already been played, 
     or if the game is paused. If either of those is true we will simply ignore the click.
@@ -94,6 +95,7 @@ function handleCellPlayed(clickedCell, clickedCellIndex) {
         We update our internal game state to reflect the played move, 
         as well as update the user interface to reflect the played move
         */
+
   var hintergrund = document.getElementById("body");
   if (currentPlayer === "X" && clickedCell.innerHTML === "") {
     clickedCell.className = "cell blue";
@@ -222,4 +224,40 @@ function leseSpielfeld() {
   console.log(
     document.getElementsByClassName("game--container")[0].children[0]
   );
+}
+
+function zufallsFeld() {
+  var min = 0;
+  var max = 8;
+  var zufallsBlock = Math.round(Math.random() * (max - min)) + min;
+  return zufallsBlock;
+}
+
+function istBereitsBelegt(feld) {
+  if (feld.innerHTML === "") {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+function zahlenAddieren(zahl1, zahl2) {
+  return zahl1 + zahl2;
+}
+var hi = [5, 4, 6, 7, 8];
+function zahlenlisteAddieren(liste) {
+  var summe = 0;
+  for (var i = 0; i < liste.length; i++) {
+    summe = summe + liste[i];
+  }
+  return summe;
+}
+console.log(zahlenlisteAddieren(hi));
+
+function spieler() {
+  document.getElementById("alles").style.visibility = "visible";
+}
+
+function bot() {
+  document.getElementById("alles").style.visibility = "visible";
 }

@@ -9,19 +9,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body id="body">
+    <div class="versteckt" id="alles">
     <div>
         <h2>Spieler</h2> 
         <input id="todo_input1" type="text" placeholder="Spieler1">
-        <button id="add_button1" onclick="hinzufuegen(1)">ändern</button> <br>
-        <input id="todo_input2" type="text" placeholder="Spieler2">
-        <button id="add_button2" onclick="hinzufuegen(2)">ändern</button>
-    </div>
-    <div class="PlayerBox">
-        <input id="zahl" type="button" class="start" value="start spieler" onclick="zufall()"></input>
+            <button id="add_button1" onclick="hinzufuegen(1)">ändern</button> <br>
+            <input id="todo_input2" type="text" placeholder="Spieler2">
+            <button id="add_button2" onclick="hinzufuegen(2)">ändern</button>
+            <input id="zahl" type="button" class="start" value="start spieler" onclick="zufall()"></input>
         <div class="Box" id="currentPlayerBox"></div>
     </div>
-    <button onclick="leseSpielfeld()">klicken</button>
-   
+    <!-- <div class="leseSpielfeld"><button onclick="leseSpielfeld()">klicken</button></div> -->
     <section>
         <h1 class="game--title">Tic Tac Toe</h1>
         <div class="game--container">
@@ -35,12 +33,15 @@
             <div data-cell-index="7" class="cell"></div>
             <div data-cell-index="8" class="cell"></div>
         </div>
-        <h2 class="game--status"></h2>
-        <button class="game--restart">Restart Game</button>
+        <div><h2 class="game--status"></h2></div>
+        <div><button class="game--restart">Restart Game</button></div>
     </section>
     <div class="melone">
         <img src="https://comps.gograph.com/lustig-mann-mit-wassermelone-helm-und-googles_gg82540731.jpg" id="melone">
     </div>
     <script src="script.js"></script>
+</div>
+<div class="Spielerauswahl"><button onclick="bot()">1Spieler</button>
+    <button onclick="spieler()">2Spieler</button></div>
 </body>
 </html>

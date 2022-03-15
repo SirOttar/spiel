@@ -43,10 +43,19 @@ section {
 }
 
 .PlayerBox {
+  visibility: hidden;
   margin-top: 1%;
   display: flex;
 }
 
 .Box {
   border: 2px solid black;
+}
+.Spielerauswahl {
+  font-size: 10px;
+  margin-left: 50em;
+}
+
+.versteckt {
+  visibility: hidden;
 }
