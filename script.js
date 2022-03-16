@@ -175,6 +175,8 @@ function handleRestartGame() {
   document.getElementById("melone").style.visibility = "hidden";
   document.getElementById("todo_input1").disabled = false;
   document.getElementById("todo_input2").disabled = false;
+  document.getElementsByClassName("Spielerauswahl")[0].style.visibility =
+    "visible";
 }
 var melone = document.getElementById("melone");
 // melone.addEventListener('mouseover', ()=>{melone.style.width = "2%"})
@@ -234,7 +236,7 @@ function zufallsFeld() {
 }
 
 function istBereitsBelegt(feld) {
-  if (feld.innerHTML === "") {
+  if (gameState[feld] === "") {
     return false;
   } else {
     return true;
@@ -252,12 +254,33 @@ function zahlenlisteAddieren(liste) {
   }
   return summe;
 }
-console.log(zahlenlisteAddieren(hi));
+// console.log(zahlenlisteAddieren(hi));
 
 function spieler() {
   document.getElementById("alles").style.visibility = "visible";
+  document.getElementsByClassName("Spielerfeld")[0].style.visibility =
+    "visible";
+  document.getElementsByClassName("Spielerauswahl")[0].style.visibility =
+    "hidden";
 }
 
 function bot() {
+  // var myArray = [1, 2, 3, 4, 5, 6, 7, 8];
+  // var rand = Math.floor(Math.random() * myArray.length);
+  // var rValue = myArray[rand];
+  // console.log(rValue);
   document.getElementById("alles").style.visibility = "visible";
+  document.getElementsByClassName("Spielerfeld")[0].style.visibility = "hidden";
+  document.getElementsByClassName("Spielerauswahl")[0].style.visibility =
+    "hidden";
+}
+function forschleife() {
+  var n = zufallsFeld();
+  while (istBereitsBelegt(n)) {
+    n = zufallsFeld();
+  }
+  gameState[n] = "O";
+  // for (var i = 0; i < liste.length; i++) {
+  // console.log(liste[i]);
+  // }
 }
