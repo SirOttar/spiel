@@ -63,3 +63,7 @@ section {
 .Spielerfeld {
   visibility: hidden;
 }
+
+.schleife {
+  visibility: hidden;
+}

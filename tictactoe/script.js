@@ -262,6 +262,7 @@ function spieler() {
     "visible";
   document.getElementsByClassName("Spielerauswahl")[0].style.visibility =
     "hidden";
+  document.getElementById("schleife").style.visibility = "hidden";
 }
 
 function bot() {
@@ -273,14 +274,43 @@ function bot() {
   document.getElementsByClassName("Spielerfeld")[0].style.visibility = "hidden";
   document.getElementsByClassName("Spielerauswahl")[0].style.visibility =
     "hidden";
+  document.getElementById("schleife").style.visibility = "visible";
+}
+function holeFeld(n) {
+  var felder = document.querySelectorAll(".cell");
+  var feld = undefined;
+  for (var i = 0; i < felder.length; i++) {
+    var cellIndex = parseInt(felder[i].getAttribute("data-cell-index"));
+    if (cellIndex == n) {
+      feld = felder[i];
+      return feld;
+    }
+  }
 }
 function forschleife() {
   var n = zufallsFeld();
+  if (currentPlayer == "X") {
+    return;
+  }
+  if (sindAlleFelderBelegt()) {
+    return;
+  }
   while (istBereitsBelegt(n)) {
     n = zufallsFeld();
   }
-  gameState[n] = "O";
+  var feld = holeFeld(n);
+  handleCellPlayed(feld, parseInt(feld.getAttribute("data-cell-index")));
+  handleResultValidation();
   // for (var i = 0; i < liste.length; i++) {
   // console.log(liste[i]);
   // }
+}
+
+function sindAlleFelderBelegt() {
+  for (var i = 0; i < 9; i++) {
+    if (!istBereitsBelegt(i)) {
+      return false;
+    }
+  }
+  return true;
 }
