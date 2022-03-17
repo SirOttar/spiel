@@ -1,0 +1,34 @@
+.zahlenknoepfe {
+  text-align: center;
+  font-size: 40px;
+  padding: 20px 20px;
+}
+
+.ergenbnisfeld {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  padding: 20px 20px;
+  width: 100%;
+}
+
+div {
+  border: solid black 1px;
+}
+
+.tasten {
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  display: grid;
+  display: inline-grid;
+}
+
+.geteilt {
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  display: grid;
+  display: inline-grid;
+}
