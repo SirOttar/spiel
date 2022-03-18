@@ -14,18 +14,19 @@
       <button class="tasten" onclick="drueckeZahl(7)">7</button>
       <button class="tasten" onclick="drueckeZahl(8)">8</button>
       <button class="tasten" onclick="drueckeZahl(9)">9</button>
-      <button class="tasten">*</button><br />
+      <button class="tasten" onclick="setOperation('*')">*</button><br />
       <button class="tasten" onclick="drueckeZahl(4)">4</button>
       <button class="tasten" onclick="drueckeZahl(5)">5</button>
       <button class="tasten" onclick="drueckeZahl(6)">6</button>
-      <button class="tasten">-</button><br />
+      <button class="tasten" onclick="setOperation('-')">-</button><br />
       <button class="tasten" onclick="drueckeZahl(1)">1</button>
       <button class="tasten" onclick="drueckeZahl(2)">2</button>
       <button class="tasten" onclick="drueckeZahl(3)">3</button>
-      <button class="tasten">+</button><br />
+      <button class="tasten" onclick="setOperation('+')">+</button><br />
+      <button class="tasten" onclick="del()">del</button>
       <button class="tasten" onclick="drueckeZahl(0)">0</button>
-      <button class="tasten">=</button>
-      <button class="geteilt">/</button>
+      <button class="tasten" onclick="gleichheitszeichen()">=</button>
+      <button class="tasten" onclick="setOperation('/')">/</button>
     </div>
     <script src="script.js"></script>
   </body>
