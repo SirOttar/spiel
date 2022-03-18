@@ -26,14 +26,16 @@ function division(number1, number2) {
 }
 
 function setOperation(operation) {
+  aktuelleZahl = aktuelleZahl.replaceAll(",", ".");
   opera = operation;
-  zahl1 = parseInt(aktuelleZahl);
+  zahl1 = parseFloat(aktuelleZahl);
   aktuelleZahl = "";
 }
 
 function gleichheitszeichen() {
   var ergebnis = 0;
-  var zahl2 = parseInt(aktuelleZahl);
+  aktuelleZahl = aktuelleZahl.replaceAll(",", ".");
+  var zahl2 = parseFloat(aktuelleZahl);
   switch (opera) {
     case "+":
       ergebnis = addition(zahl1, zahl2);
@@ -51,6 +53,7 @@ function gleichheitszeichen() {
       return;
   }
   aktuelleZahl = ergebnis;
+  aktuelleZahl = aktuelleZahl.toString().replaceAll(".", ",");
   var ergebnisFeld = document.getElementById("ergebnis");
   ergebnisFeld.innerHTML = aktuelleZahl;
   opera = "";
@@ -62,4 +65,13 @@ function del() {
   opera = "";
   aktuelleZahl = "";
   zahl1 = "";
+}
+
+function komma() {
+  if (aktuelleZahl.includes(",")) {
+    return;
+  }
+  aktuelleZahl += ",";
+  var ergebnisFeld = document.getElementById("ergebnis");
+  ergebnisFeld.innerHTML = aktuelleZahl;
 }
